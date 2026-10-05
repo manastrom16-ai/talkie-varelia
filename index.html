@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talkie-Walkie Varelia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Structure externe du talkie -->
+    <div class="talkie-wrapper">
+        <div class="antenna"></div>
+        <div class="volume-knob"></div>
+        <div class="channel-knob"></div>
+        
+        <div class="talkie-container">
+            <!-- Petites vis tactiques aux 4 coins -->
+            <div class="screw top-left"></div>
+            <div class="screw top-right"></div>
+            <div class="screw bottom-left"></div>
+            <div class="screw bottom-right"></div>
+
+            <div id="led" class="led-idle"></div>
+            
+            <!-- Plaque de signature Sarox333 Premium -->
+            <div class="signature-plate">
+                <span class="creator-name">DESIGNED BY SAROX333</span>
+            </div>
+            
+            <div class="brand">VARELIA MIL-SPEC</div>
+            
+            <!-- Écran LCD Cyberpunk Rétroéclairé -->
+            <div class="screen-wrapper">
+                <div class="screen">
+                    <div class="freq-row">
+                        <span class="label">FREQ:</span>
+                        <input type="number" id="frequency" value="446.1" step="0.1" min="100" max="999"> <span class="mhz">MHz</span>
+                    </div>
+                    <div id="status" class="status-idle">SYSTEM READY</div>
+                    <div id="my-id">ID: En attente...</div>
+                </div>
+            </div>
+
+            <!-- Grille de haut-parleur agressive -->
+            <div class="speaker-grille">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- Zone de Connexion compacte -->
+            <div class="connection-box">
+                <input type="text" id="peer-id-input" placeholder="ID DE L'AMI">
+                <button id="connect-btn">LINK</button>
+            </div>
+
+            <!-- Bouton PTT lourd en relief 3D -->
+            <div class="btn-shadow">
+                <button id="ptt-btn" class="btn-talk">MAINTENIR POUR PARLER</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

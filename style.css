@@ -1,0 +1,272 @@
+body {
+    background-color: #08090c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* Conteneur global pour aligner les boutons du haut et l'antenne */
+.talkie-wrapper {
+    position: relative;
+    padding-top: 60px;
+}
+
+/* Antenne tactique longue */
+.antenna {
+    width: 16px;
+    height: 80px;
+    background: linear-gradient(90deg, #15181f 0%, #252a36 100%);
+    position: absolute;
+    top: -20px;
+    left: 45px;
+    border-radius: 4px 4px 0 0;
+    border: 3px solid #2d323f;
+    border-bottom: none;
+    box-shadow: -5px 0px 15px rgba(0,0,0,0.5);
+}
+
+/* Molettes de volume physiques sur le dessus */
+.volume-knob, .channel-knob {
+    width: 26px;
+    height: 20px;
+    background: linear-gradient(90deg, #101217, #2d323f, #101217);
+    position: absolute;
+    top: 43px;
+    border-radius: 4px 4px 0 0;
+    border: 2px solid #2d323f;
+}
+.volume-knob { right: 70px; }
+.channel-knob { right: 35px; }
+
+/* Boîtier en polymère renforcé */
+.talkie-container {
+    background: linear-gradient(135deg, #1d212a 0%, #0a0b0e 100%);
+    padding: 35px 25px 25px 25px;
+    border-radius: 32px;
+    box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.9), 
+                inset 0px 3px 5px rgba(255, 255, 255, 0.05),
+                inset 0px -3px 5px rgba(0, 0, 0, 0.6);
+    border: 4px solid #2d323f;
+    text-align: center;
+    width: 320px;
+    position: relative;
+}
+
+/* Vis de décoration militaire */
+.screw {
+    width: 6px;
+    height: 6px;
+    background: #4c566a;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.8);
+}
+.top-left { top: 15px; left: 20px; }
+.top-right { top: 15px; right: 20px; }
+.bottom-left { bottom: 15px; left: 20px; }
+.bottom-right { bottom: 15px; right: 20px; }
+
+/* Nouvelle Plaque Fluo Sarox333 (Violet Électrique / Bleu / Blanc) */
+.signature-plate {
+    background: #050608;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #3b4252;
+    position: relative;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7),
+                inset 0px 0px 15px rgba(136, 192, 208, 0.15);
+    background: linear-gradient(135deg, #0f1117 0%, #1e152a 100%);
+}
+
+.creator-name {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    font-family: 'Courier New', Courier, monospace;
+    /* Mélange de néon violet, bleu et blanc */
+    text-shadow: 0 0 8px #ffffff, 
+                 0 0 15px #b48ead, 
+                 0 0 25px #81a1c1,
+                 0 0 35px #b48ead;
+}
+
+/* LED d'activité brillante */
+#led {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: 45px;
+    border: 2px solid #0a0b0e;
+    transition: background 0.1s, box-shadow 0.1s;
+}
+.led-idle {
+    background-color: #a3be8c;
+    box-shadow: 0 0 12px #a3be8c, inset 0 0 4px rgba(255,255,255,0.6);
+}
+.led-talking {
+    background-color: #bf616a;
+    box-shadow: 0 0 18px #bf616a, inset 0 0 4px rgba(255,255,255,0.6);
+    animation: blink 0.4s infinite;
+}
+
+.brand {
+    color: #4c566a;
+    font-size: 11px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    letter-spacing: 6px;
+    text-shadow: 0px 1px 2px black;
+}
+
+/* Cadre de l'Écran Matrix Vert */
+.screen-wrapper {
+    position: relative;
+    border-radius: 16px;
+    border: 4px solid #13161c;
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.6),
+                0px 4px 20px rgba(163, 190, 140, 0.15);
+}
+
+/* Reflet de vitre brillant en diagonale */
+.screen-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.03) 40%, rgba(255,255,255,0) 41%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.screen {
+    background: linear-gradient(180deg, #a3be8c 0%, #7fa365 100%);
+    color: #1a1c23;
+    padding: 20px 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.freq-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 8px;
+}
+
+.screen input {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: 900;
+    width: 105px;
+    text-align: center;
+    color: #1a1c23;
+    outline: none;
+}
+
+.mhz { font-size: 14px; margin-top: 8px; font-weight: 900; }
+#status { font-size: 13px; margin-bottom: 12px; font-weight: 900; letter-spacing: 2px; }
+.status-idle { color: #2e3440; opacity: 0.8; }
+.status-talking { color: #1a1c23; font-weight: 900; }
+#my-id { font-size: 11px; color: #2e3440; border-top: 1px dashed rgba(0, 0, 0, 0.25); padding-top: 8px; font-weight: 900; }
+
+/* Grille HP Renforcée style armure */
+.speaker-grille {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 70%;
+    margin: 0 auto 22px auto;
+    background: #0b0c0f;
+    padding: 14px;
+    border-radius: 14px;
+    box-shadow: inset 0px 4px 8px rgba(0,0,0,0.7),
+                0px 1px 2px rgba(255,255,255,0.05);
+    border: 1px solid #1f232b;
+}
+.speaker-grille span {
+    height: 4px;
+    background: linear-gradient(90deg, #1a1d24, #2e3440, #1a1d24);
+    border-radius: 3px;
+    display: block;
+}
+
+/* Inputs de connexion */
+.connection-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+.connection-box input {
+    flex: 1;
+    background-color: #0b0c0f;
+    border: 2px solid #2d323f;
+    color: #a3be8c;
+    padding: 12px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: inset 0px 2px 4px rgba(0,0,0,0.5);
+}
+.connection-box button {
+    background: linear-gradient(180deg, #3b4252 0%, #232731 100%);
+    color: #eceff4;
+    border: 1px solid #434c5e;
+    padding: 0 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 1px;
+    box-shadow: 0px 4px 0px #13161c;
+}
+.connection-box button:active {
+    transform: translateY(3px);
+    box-shadow: 0px 1px 0px #13161c;
+}
+
+/* Bouton PTT 3D */
+.btn-shadow {
+    background-color: #40100c;
+    border-radius: 18px;
+    padding-bottom: 8px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+}
+.btn-talk {
+    background: linear-gradient(180deg, #bf616a 0%, #88383f 100%);
+    color: #eceff4;
+    border: none;
+    padding: 24px;
+    border-radius: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 2px;
+    box-shadow: inset 0px 2px 3px rgba(255,255,255,0.3);
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.6);
+    transition: background 0.1s;
+}
+.btn-talk:hover {
+    background: linear-gradient(180deg, #c76f78 0%, #943e45 100%);
+}
+.btn-talk:active { 
+    transform: translateY(6px); 
+}
+
+@keyframes blink {
+    50% { opacity: 0.1; }
+}
